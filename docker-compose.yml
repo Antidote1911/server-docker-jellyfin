@@ -10,7 +10,7 @@ services:
       # - JELLYFIN_PublishedServerUrl=https://jellyfin.antiplex.fr #optional
     volumes:
       - /mnt/Partage/Logiciels/jellyfin/config:/config:rw
-      - /mnt/Partage:/data;rw
+      - /mnt/Partage:/data:rw
     ports:
       - 8096:8096
     restart: unless-stopped
