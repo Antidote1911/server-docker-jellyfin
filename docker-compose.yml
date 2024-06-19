@@ -9,7 +9,7 @@ services:
       - TZ=Europe/Paris
       # - JELLYFIN_PublishedServerUrl=https://jellyfin.antiplex.fr #optional
     volumes:
-      - jellyfin-config:/config:rw
+      - /jellyfin-config:/config:rw
       - /mnt/Partage:/data:rw
     ports:
       - 8096:8096
