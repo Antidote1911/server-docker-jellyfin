@@ -4,21 +4,6 @@ services:
     image: lscr.io/linuxserver/jellyfin:10.11.5
     container_name: jellyfin
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Paris
-      # - JELLYFIN_PublishedServerUrl=https://jellyfin.antiplex.fr #optional
-    volumes:
-      - /jellyfin-config:/config:rw
-      - /mnt/Partage:/data:rw
-    ports:
-      - 8096:8096
-    restart: unless-stopped
-
-  jellyseerr:
-    image: lscr.io/linuxserver/jellyfin:10.11.5
-    container_name: jellyfin
-    environment:
       - PUID=1000 # À vérifier avec la commande 'id' dans votre terminal
       - PGID=1000 # À vérifier avec la commande 'id' dans votre terminal
       - TZ=Europe/Paris
