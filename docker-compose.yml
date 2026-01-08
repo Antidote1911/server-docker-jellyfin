@@ -14,3 +14,35 @@ services:
     ports:
       - 8096:8096
     restart: unless-stopped
+
+
+version: '3.5'
+
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:10.11.5
+    container_name: jellyfin
+    environment:
+      - PUID=1000 # À vérifier avec la commande 'id' dans votre terminal
+      - PGID=1000 # À vérifier avec la commande 'id' dans votre terminal
+      - TZ=Europe/Paris
+    volumes:
+      - /jellyfin-config:/config:rw
+      - /mnt/Partage:/data:rw # Chemin vers vos films/séries
+    ports:
+      - 8096:8096
+    restart: unless-stopped
+
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=Europe/Paris
+    volumes:
+      - "/mnt/Partage/Logiciels/jellyseerr/config:/app/config:rw"
+    ports:
+      - 5055:5055
+    restart: unless-stopped
+    depends_on:
+      - jellyfin
