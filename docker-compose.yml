@@ -15,9 +15,6 @@ services:
       - 8096:8096
     restart: unless-stopped
 
-
-version: '3.5'
-
 services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:10.11.5
