@@ -15,11 +15,13 @@ services:
     restart: unless-stopped
 
   seerr:
-    image: seerr/seerr:v3.1.0
+    image: seerr/seerr:latest
     container_name: seerr
     environment:
       - LOG_LEVEL=debug
       - TZ=Europe/Paris
+      - PUID=1000
+      - PGID=1000
     volumes:
       - "/mnt/Partage/Logiciels/seerr/config:/app/config:rw"
     ports:
