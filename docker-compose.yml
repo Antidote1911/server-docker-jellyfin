@@ -14,9 +14,9 @@ services:
       - 8096:8096
     restart: unless-stopped
 
-  jellyseerr:
-    image: fallenbagel/jellyseerr:latest
-    container_name: jellyseerr
+  seerr:
+    image: seerr/seerr:v3.1.0
+    container_name: seerr
     environment:
       - LOG_LEVEL=debug
       - TZ=Europe/Paris
