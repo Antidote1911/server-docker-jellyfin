@@ -12,6 +12,8 @@ services:
       - /mnt/Partage:/data:rw # Chemin vers vos films/séries
     ports:
       - 8096:8096
+    devices:
+      - /dev/dri:/dev/dri # Donne accès au moteur de rendu graphique
     restart: unless-stopped
 
   seerr:
